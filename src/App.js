@@ -20,6 +20,13 @@ import axios from 'axios';
 
 const App = () => {
   const [isICMPInboundAllowed, setIsICMPInboundAllowed] = useState(null);
+  const [clientIP, setClientIP] = useState(null);
+  const clientIPRequest = async () => {
+    const response = await axios.post('http://54.180.83.143:8080/ping/getClientIP');
+    const { data } = response;
+    setClientIP(data);
+    
+  }
 
   // 클라이언트 요청 함수
   const handleRequest = async () => {
@@ -37,17 +44,23 @@ const App = () => {
 
   // 페이지 변경 함수
   const renderPage = () => {
-    if (isICMPInboundAllowed === null) {
-      return <p>Loading...</p>; // 요청이 아직 완료되지 않은 경우
-    } else if (isICMPInboundAllowed === true) {
-      return <MainPage />; // true일 때 page1 반환
-    } else {
-      return <Page2 />; // false일 때 page2 반환
-    }
+    return <p>{clientIP}</p>  
+  
+    // if (isICMPInboundAllowed === null) {
+    //   return <p>Loading...</p>; // 요청이 아직 완료되지 않은 경우
+    // } else if (isICMPInboundAllowed === true) {
+    //   return <MainPage />; // true일 때 page1 반환
+    // } else {
+    //   return <Page2 />; // false일 때 page2 반환
+    // }
+  
+
+
   };
 
   return (
     <div>
+      <button onClick={clientIPRequest}>request clientIP</button>
       <button onClick={handleRequest}>Send Request</button>
       {renderPage()}
     </div>
