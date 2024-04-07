@@ -3,7 +3,7 @@ import React from 'react';
 function page2() {
   return (
     <div>
-      <h1>page2222</h1>
+      <h1>denied</h1>
     </div>
   );
 }
