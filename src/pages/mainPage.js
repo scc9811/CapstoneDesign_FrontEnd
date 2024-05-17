@@ -5,6 +5,7 @@ function MainPage() {
 
   useEffect(() => {
     // WebSocket 연결
+    // const ws = new WebSocket('ws://scc9811.site:8080/socketConnection');
     const ws = new WebSocket('ws://localhost:8080/socketConnection');
 
     // 소켓 연결될 때 실행되는 함수
