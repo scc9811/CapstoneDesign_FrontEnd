@@ -56,14 +56,70 @@ function MainPage() {
     return <div>Loading...</div>;
   }
 
+  // return (
+  //   <div>
+  //     <h1>averageResponseTime: {socketData.averageResponseTime}</h1>
+  //     {socketData.running ? null : (
+  //       <h1>packetLossRate: {socketData.packetLossRate}</h1>
+  //     )}
+  //   </div>
+  // );
   return (
     <div>
       <h1>averageResponseTime: {socketData.averageResponseTime}</h1>
       {socketData.running ? null : (
-        <h1>packetLossRate: {socketData.packetLossRate}</h1>
+        <div>
+          <h1>packetLossRate: {socketData.packetLossRate}</h1>
+          <button
+            onClick={async () => {
+              const { averageResponseTime } = socketData;
+              // Save averageResponseTime to localStorage
+              localStorage.setItem('averageResponseTime', averageResponseTime);
+  
+              // Check if token exists in localStorage
+              const token = localStorage.getItem('token');
+  
+              // if (token) --> 바꿔야됨.
+              console.log('token : ', token);
+              if (token) {
+                // token 있으면 --> 백엔드 서버로 userEmail, nickName 요청 가능.
+                try {
+                  const response = await fetch('http://localhost:8080/ping/storeResult', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ averageResponseTime })
+                  });
+  
+                  if (!response.ok) {
+                    // throw new Error('Network response was not ok');
+                    alert('로그인이 필요합니다');
+                    window.location.href = '/user/signIn';
+                  }
+  
+                  // const data = await response.json();
+                  // console.log('Response data:', data);
+                  alert('저장 완료');
+                } catch (error) {
+                  alert('로그인이 필요합니다');
+                    window.location.href = '/user/signIn';
+                  // console.error('Error sending data:', error);
+                }
+              } else {
+                // console.error('No token found in localStorage');
+                window.location.href = '/user/signIn';
+              }
+            }}
+          >
+            결과 저장하기
+          </button>
+        </div>
       )}
     </div>
   );
+  
 }
 
 export default MainPage;
