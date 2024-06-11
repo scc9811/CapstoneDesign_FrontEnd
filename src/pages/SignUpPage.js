@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Style.css';
 
 function SignUpPage() {
   // 각 입력 필드의 상태를 관리하는 useState 훅 사용.
@@ -41,42 +42,24 @@ function SignUpPage() {
 
   return (
     <div>
-      <h2>회원가입</h2>
-
-      <div>
-        <label>
-          email: 
-          <input 
-            type="text" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-          />
-        </label>
+      <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
       </div>
+      <form style={{height: '550px'}}>
+        <h4>SignUp Here</h4>
 
-      <div>
-        <label>
-          Password: 
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-          />
-        </label>
-      </div>
+        <label>Email</label>
+        <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-      <div>
-        <label>
-          nickName: 
-          <input 
-            type="text" 
-            value={nickName} 
-            onChange={(e) => setNickName(e.target.value)} 
-          />
-        </label>
-      </div>
+        <label>Password</label>
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-      <button onClick={handleSignUp}>회원가입</button>
+        <label>NickName</label>
+        <input type="text" placeholder="NickName" value={nickName} onChange={(e) => setNickName(e.target.value)} />
+
+        <button onClick={handleSignUp}>Sign Up</button>
+      </form>
     </div>
   );
 }
