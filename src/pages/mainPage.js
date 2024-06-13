@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './Style.css';
 
 function MainPage() {
   const [socketData, setSocketData] = useState(null);
   const [isAllowed, setIsAllowed] = useState(null);
+  const [publicIP, setPublicIP] = useState('');
 
   const storeResult = async() => {
     const { averageResponseTime } = socketData;
@@ -45,6 +45,18 @@ function MainPage() {
       window.location.href = '/user/signIn';
     }
   }
+  useEffect(() => {
+    const fetchPublicIP = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/ping/getClientIP');
+        const data = await response.text();
+        setPublicIP(data);
+      } catch (error) {
+        console.error('Error fetching public IP:', error);
+      }
+    };
+    fetchPublicIP();
+  }, [])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -100,14 +112,23 @@ function MainPage() {
 
   return (
     <div>
-      <form></form>
-      <h1>averageResponseTime: {socketData.averageResponseTime}</h1>
-      {socketData.running ? null : (
-        <div>
-          <h1>packetLossRate: {socketData.packetLossRate}</h1>
-          <button onClick={storeResult}>결과 저장하기</button>
-        </div>
-      )}
+      <h1 className='userIP'>
+
+      Your Public IP : {publicIP} <br />
+      Server IP : 54.180.58.154 <br />
+      
+      </h1>
+      {/* <h1 className='userIP'>Your IP : </h1>
+      <h1 className='userIP'>Server IP : </h1> */}
+      <div className='myBox'>
+        <h1>평균 응답시간 : {socketData.averageResponseTime}초</h1>
+        {socketData.running ? null : (
+          <div>
+            <h1>패킷 손실 비율 : {socketData.packetLossRate}</h1>
+            <button className='storeButton' onClick={storeResult}>결과 저장하기</button>
+          </div>
+        )}
+      </div>
     </div>
   );
   

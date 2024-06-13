@@ -1,4 +1,3 @@
-/* Style.css */
 *,
 *:before,
 *:after {
@@ -37,6 +36,20 @@ body {
     background: linear-gradient(to right, #ff512f, #f09819);
     right: -30px;
     bottom: -80px;
+}
+.buttonForm {
+    height: 45px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
 }
 
 form {
@@ -135,4 +148,57 @@ button {
 
 .social i {
     margin-right: 4px;
+}
+
+.myBox {
+    height: 300px;
+    width: 600px;
+    background-color: rgba(104, 178, 243, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    color: #e5e5e5;
+}
+.userIP {
+    top: 5%;
+    left: 5%;
+    position: absolute;
+    color: #e5e5e5;
+    line-height: 50px;
+}
+.storeButton {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.image-container {
+    max-width: 100%;
+}
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+.gallery-container {
+    display: flex;
+    flex-direction: column; /* 이미지들을 세로로 배치 */
+    align-items: center; /* 가운데 정렬 */
+    gap: 10px; /* 이미지 사이의 간격 설정 */
+}
+
+.gallery-image {
+    width: 50%; /* 이미지 너비 100% */
+    height: auto; /* 너비에 맞춰서 높이 자동 조절 */
+    margin-bottom: 10px; /* 이미지 사이의 간격 설정 */
 }

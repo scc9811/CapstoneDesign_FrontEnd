@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
+import image1 from '../assets/1.png';
+import image2 from '../assets/2.png';
+import image3 from '../assets/3.png';
+import image4 from '../assets/4.png';
+import image5 from '../assets/5.png';
+import image6 from '../assets/6.png';
+import image7 from '../assets/7.png';
+import image8 from '../assets/8.png';
+import image9 from '../assets/9.png';
+import image10 from '../assets/10.png';
+
+
 
 const FirewallGuidePage = () => {
-  const [message, setMessage] = useState('');
 
   const handleButtonClick = async () => {
     try {
@@ -11,15 +22,19 @@ const FirewallGuidePage = () => {
       if (data.allowed) {
         window.location.href = '/';
       } else {
-        setMessage('방화벽 설정을 다시 확인해주세요.');
+        // setMessage('방화벽 설정을 다시 확인해주세요.');
+        alert('설정이 완료되지 않았습니다.\n 다시 확인해주세요.')
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
-      setMessage('서버에 오류가 발생했습니다. 나중에 다시 시도해주세요.');
+      alert('설정이 완료되지 않았습니다.\n 다시 확인해주세요.')
+
+      // console.error('Error fetching data:', error);
+      // setMessage('방화벽 설정을 다시 확인해주세요. ');
     }
   };
 
   const styles = {
+
     container: {
       display: 'flex',
       flexDirection: 'column',
@@ -32,9 +47,9 @@ const FirewallGuidePage = () => {
       padding: '20px',
     },
     heading: {
-      fontSize: '24px',
-      marginBottom: '20px',
-      color: '#333',
+      top: '5%',
+      color: '#e5e5e5',
+      textAlign: 'center'
     },
     button: {
       backgroundColor: '#007bff',
@@ -55,10 +70,29 @@ const FirewallGuidePage = () => {
       fontSize: '14px',
     },
   };
+  const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+  ];
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>방화벽 설정을 확인해주세요.</h1>
+    <div>
+      <br/>
+      <h1 style={styles.heading}>순서대로 설정을 진행해주세요.</h1>
+      <br/>
+      <div className="gallery-container">
+        {images.map((image, index) => (
+          <img key={index} src={image} alt={`Image ${index + 1}`} className="gallery-image" />
+        ))}
+      </div>
       <button
         style={styles.button}
         onMouseOver={(e) => (e.currentTarget.style.backgroundColor = styles.buttonHover.backgroundColor)}
@@ -68,8 +102,36 @@ const FirewallGuidePage = () => {
         방화벽 설정 완료. <br />
         다시 테스트 시도하기.
       </button>
-      {message && <p style={styles.message}>{message}</p>}
     </div>
+    // <div className='a'>
+    // <div className='gallery-container'> 
+    //   <img src={image1} className='responsive-image' />
+    //     <img src={image2} className='responsive-image' />
+    //     <img src={image3} className='responsive-image' />
+    //     <img src={image4} className='responsive-image' />
+    //     <img src={image5} className='responsive-image' />
+    //     <img src={image6} className='responsive-image' />
+    //     <img src={image7} className='responsive-image' />
+    //     <img src={image8} className='responsive-image' />
+    //     <img src={image9} className='responsive-image' />
+    //     <img src={image10} className='responsive-image' />
+    // </div>
+
+    // </div>
+    // <div>
+    //   <h1 style={styles.heading}>이미지 순서대로 진행해주세요.</h1>
+      
+      // <button
+      //   style={styles.button}
+      //   onMouseOver={(e) => (e.currentTarget.style.backgroundColor = styles.buttonHover.backgroundColor)}
+      //   onMouseOut={(e) => (e.currentTarget.style.backgroundColor = styles.button.backgroundColor)}
+      //   onClick={handleButtonClick}
+      // >
+      //   방화벽 설정 완료. <br />
+      //   다시 테스트 시도하기.
+      // </button>
+      // {message && <p style={styles.message}>{message}</p>}
+    // </div>
   );
 };
 
