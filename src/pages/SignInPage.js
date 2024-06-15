@@ -78,7 +78,7 @@ const handleLogin = async (event) => {
         <div className="shape"></div>
         <div className="shape"></div>
       </div>
-      <form>
+      <form style={{height: '480px'}}>
         <h3>Login Here</h3>
 
         {/* <label htmlFor="username">Email</label> */}

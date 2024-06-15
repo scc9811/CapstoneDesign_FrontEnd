@@ -8,17 +8,20 @@ import image7 from '../assets/7.png';
 import image8 from '../assets/8.png';
 import image9 from '../assets/9.png';
 import image10 from '../assets/10.png';
+import React, { useState } from 'react';
 
 
 
 const FirewallGuidePage = () => {
-
+  const [loading, setLoading] = useState(false);
   const handleButtonClick = async () => {
+    setLoading(true); // 요청 시작 전에 로딩 상태 설정
     try {
       const response = await fetch('http://scc9811.site:8080/ping/isICMPInboundAllowed');
       const data = await response.json();
       console.log('allowed = ', data.allowed);
       if (data.allowed) {
+        alert('설정이 완료되었습니다.\n 테스트 페이지로 이동합니다.')
         window.location.href = '/';
       } else {
         // setMessage('방화벽 설정을 다시 확인해주세요.');
@@ -94,6 +97,10 @@ const FirewallGuidePage = () => {
           <img key={index} src={image} alt={`Image ${index + 1}`} className="gallery-image" />
         ))}
       </div>
+      {loading &&
+      <h1 style={styles.heading}>
+        확인중입니다...
+      </h1>}
       <button
         style={styles.button}
         onMouseOver={(e) => (e.currentTarget.style.backgroundColor = styles.buttonHover.backgroundColor)}

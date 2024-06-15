@@ -92,6 +92,7 @@ function MainPage() {
 
       // 컴포넌트가 언마운트될 때 WebSocket 연결 해제
       return () => {
+        
         ws.close();
       };
     }
@@ -100,10 +101,12 @@ function MainPage() {
   if (isAllowed === null) {
     return (
       <div>
-        <h1 className='userIP'>방화벽 확인 필요.</h1>
-        <button onClick={() => window.location.href = '/guidePage'}>
-          방화벽 가이드로 이동
-        </button>
+        <div className='guideButtonBox'>
+          <h1 className='userIP'>방화벽 확인 필요.</h1>
+          <button onClick={() => window.location.href = '/guidePage'}>
+            방화벽 가이드로 이동
+          </button>
+        </div>
       </div>
     );
   }
@@ -124,10 +127,12 @@ function MainPage() {
   if (!socketData) {
     return (
       <div>
-        <h1 className='userIP'>방화벽 확인 필요.</h1>
-        <button onClick={() => window.location.href = '/guidePage'}>
-          방화벽 가이드로 이동
-        </button>
+        <div className='guideButtonBox'>
+          <h1 className='userIP'>방화벽 확인 필요.</h1>
+          <button onClick={() => window.location.href = '/guidePage'}>
+            방화벽 가이드로 이동
+          </button>
+        </div>
       </div>
     );
   }
@@ -139,7 +144,7 @@ function MainPage() {
         Server IP : 54.180.58.154 <br />
       </h1>
       <div className='myBox'>
-        <h1>평균 응답시간 : {socketData.averageResponseTime}초</h1>
+        <h1>평균 응답시간 : {socketData.averageResponseTime}ms</h1>
         {socketData.running ? null : (
           <div>
             <h1>패킷 손실 비율 : {socketData.packetLossRate}</h1>

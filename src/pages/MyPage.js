@@ -90,7 +90,7 @@ function MyPage() {
                 <tr>
                     <th>요일</th>
                     <th>시간대</th>
-                    <th>평균 응답시간 (초)</th>
+                    <th>평균 응답시간</th>
                 </tr>
             </thead>
             <tbody>
@@ -106,7 +106,7 @@ function MyPage() {
                         <tr key={index}>
                             <td>{getDayOfWeek(result.id.day)}</td>
                             <td>{result.id.hour}시</td>
-                            <td>{result.averageTime} sec</td>
+                            <td>{result.averageTime} ms</td>
                         </tr>
                     ))}
             </tbody>
