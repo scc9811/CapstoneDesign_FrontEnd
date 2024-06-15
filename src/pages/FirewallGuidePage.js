@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import image1 from '../assets/1.png';
 import image2 from '../assets/2.png';
 import image3 from '../assets/3.png';
@@ -16,7 +15,7 @@ const FirewallGuidePage = () => {
 
   const handleButtonClick = async () => {
     try {
-      const response = await fetch('http://localhost:8080/ping/isICMPInboundAllowed');
+      const response = await fetch('http://scc9811.site:8080/ping/isICMPInboundAllowed');
       const data = await response.json();
       console.log('allowed = ', data.allowed);
       if (data.allowed) {
@@ -86,7 +85,9 @@ const FirewallGuidePage = () => {
   return (
     <div>
       <br/>
-      <h1 style={styles.heading}>순서대로 설정을 진행해주세요.</h1>
+      <h1 style={styles.heading}>
+        ICMP 패킷이 허용되지 않았습니다.<br/>
+        순서대로 설정을 진행해주세요.<br></br></h1>
       <br/>
       <div className="gallery-container">
         {images.map((image, index) => (

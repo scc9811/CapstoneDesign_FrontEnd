@@ -122,6 +122,36 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+.guideButtonBox{
+    max-width: 100%; /* 최대 너비 설정 */
+    max-height: 100%; /* 최대 높이 설정 */
+    
+    height: 200px; /* 높이 자동으로 조절 */
+    width: 500px; /* 너비 자동으로 조절 */
+    background-color: rgba(104, 178, 243, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    color: #e5e5e5;
+}
+.guideButton {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #bc6f6f;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
 
 .social {
     margin-top: 30px;
@@ -150,21 +180,6 @@ button {
     margin-right: 4px;
 }
 
-.myBox {
-    height: 300px;
-    width: 600px;
-    background-color: rgba(104, 178, 243, 0.13);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-    padding: 50px 35px;
-    color: #e5e5e5;
-}
 .userIP {
     top: 5%;
     left: 5%;
@@ -202,3 +217,67 @@ button {
     height: auto; /* 너비에 맞춰서 높이 자동 조절 */
     margin-bottom: 10px; /* 이미지 사이의 간격 설정 */
 }
+
+
+
+
+
+.testResultsTable {
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.testResultsTable th, .testResultsTable td {
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+ 
+.testResultsTable th {
+    background-color: rgba(204, 212, 219, 0.13);
+}
+/* 
+.myBox {
+    height: 300px;
+    width: 600px;
+    background-color: rgba(104, 178, 243, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    color: #e5e5e5;
+} */
+.myBox {
+    max-width: 100%; /* 최대 너비 설정 */
+    max-height: 100%; /* 최대 높이 설정 */
+    overflow: auto; /* 내용이 넘칠 경우 스크롤바 추가 */
+    height: auto; /* 높이 자동으로 조절 */
+    width: auto; /* 너비 자동으로 조절 */
+    background-color: rgba(104, 178, 243, 0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    color: #e5e5e5;
+}
+
+/*
+.testResultsTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.testResultsTable tbody tr:hover {
+    background-color: #f2f2f2;
+} */

@@ -17,7 +17,7 @@ function SignUpPage() {
     };
 
     try {
-      const response = await fetch('http://localhost:8080/user/signUp', {
+      const response = await fetch('http://scc9811.site:8080/user/signUp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,6 +30,7 @@ function SignUpPage() {
 
       if (data.result == true) {
         // 회원가입 성공 시 로그인 페이지로 리디렉션
+        alert('회원가입 완료.');
         window.location.href = '/user/signIn';
       } else {
         // 회원가입 실패 시 알림창 띄우기
