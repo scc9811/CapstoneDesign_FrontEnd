@@ -151,7 +151,7 @@ function MainPage() {
             <button className='storeButton' onClick={storeResult}>결과 저장하기</button>
           </div>
         )}
-        <h2>응답 횟수 : {responseCount}</h2> {/* 응답 횟수 표시 */}
+        <h2>응답 횟수 : {responseCount === 11 ? 10 : responseCount}</h2> {/* 응답 횟수 표시 */}
       </div>
     </div>
   );
